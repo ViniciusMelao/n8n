@@ -48,27 +48,6 @@
 					<template v-if="filteredAllNodeTypes.length > 0" #title>
 						<p v-html="$locale.baseText('nodeCreator.noResults.clickToSeeResults')" />
 					</template>
-
-					<!-- Regular Search -->
-					<template v-else>
-						<template #title>
-							<p v-text="$locale.baseText('nodeCreator.noResults.weDidntMakeThatYet')" />
-						</template>
-						<template #action>
-							{{ $locale.baseText('nodeCreator.noResults.dontWorryYouCanProbablyDoItWithThe') }}
-							<n8n-link @click="selectHttpRequest" v-if="[REGULAR_NODE_FILTER, ALL_NODE_FILTER].includes(selectedType)">
-								{{ $locale.baseText('nodeCreator.noResults.httpRequest') }}
-							</n8n-link>
-							<template v-if="selectedType === ALL_NODE_FILTER">
-								{{ $locale.baseText('nodeCreator.noResults.or') }}
-							</template>
-
-							<n8n-link @click="selectWebhook" v-if="[TRIGGER_NODE_FILTER, ALL_NODE_FILTER].includes(selectedType)">
-								{{ $locale.baseText('nodeCreator.noResults.webhook') }}
-							</n8n-link>
-							{{ $locale.baseText('nodeCreator.noResults.node') }}
-						</template>
-					</template>
 			</no-results>
 		</div>
 	</transition>
